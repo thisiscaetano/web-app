@@ -13,6 +13,13 @@
     apt:
       update_cache: yes
 
+  - name: install jdk
+    remote_user: ubuntu
+    apt:
+      name: openjdk-11-jre
+      state: present
+    become: true
+
   - name: install wget
     remote_user: ubuntu
     apt:
@@ -45,6 +52,6 @@
     
   - name: Clonando Repositorio
     git:
-      repo: https://gitlab.com/thisiscaetano/redis-app
-      dest: /home/ubuntu/redis-app
+      repo: https://github.com/thisiscaetano/web-app.git
+      dest: /home/ubuntu/web-app
   

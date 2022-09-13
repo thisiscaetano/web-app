@@ -8,7 +8,7 @@ services:
     volumes:
       - data:/usr/local/apache2/htdocs/
     networks:
-      - app-network
+      - app-aws
   
   webserver:
     image: httpd:2.4
@@ -19,7 +19,7 @@ services:
     ports:
       - "8000:80"
     networks:
-      - app-network
+      - app-aws
   repository:
     image: sonatype/nexus3:3.41.1
     container_name: nexus
@@ -28,12 +28,12 @@ services:
       - nexus-data:/nexus-data
     ports:
       - "8091:8081"
-      - "8123:8123"
+      - "8124:8124"
     networks:
-      - app-network
+      - app-aws
 
 networks:
-  app-network:
+  app-aws:
 volumes:
   data:
   nexus-data:
