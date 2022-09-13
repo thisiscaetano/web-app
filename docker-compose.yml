@@ -28,7 +28,7 @@ services:
       - nexus-data:/nexus-data
     ports:
       - "8091:8081"
-      - "8124:8124"
+      - "8123:8123"
     networks:
       - app-aws
 
