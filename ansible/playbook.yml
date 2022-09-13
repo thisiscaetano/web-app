@@ -1,0 +1,50 @@
+---
+- hosts: localhost
+  become: true
+  gather_facts: no
+  tasks:
+  - name: Aguardando servidor
+    wait_for_connection:
+      delay: 10
+      timeout: 15
+      
+  - name: Update apt
+    remote_user: ubuntu
+    apt:
+      update_cache: yes
+
+  - name: install wget
+    remote_user: ubuntu
+    apt:
+      name: wget
+      state: latest
+    become: true
+
+  - name: Instalando git
+    remote_user: ubuntu
+    apt:
+      name: ['git']
+      state: present
+    become: true
+  
+  - name: Instalando docker
+    remote_user: ubuntu
+    apt:
+      name: ['docker.io', 'docker-compose']
+      state: present
+    become: true
+
+  - name: Adicionando usuario ubuntu no grupo docker
+    remote_user: ubuntu
+    user:
+      name: "ubuntu"
+      group: "docker"
+      append: yes
+    tags:
+      - docker
+    
+  - name: Clonando Repositorio
+    git:
+      repo: https://gitlab.com/thisiscaetano/redis-app
+      dest: /home/ubuntu/redis-app
+  
