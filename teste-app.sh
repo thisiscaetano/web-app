@@ -1,7 +1,7 @@
 #/bin/bash
 
-RESULT="`wget -qO- http://localhost:8000`"
-wget -q localhost:8000
+RESULT="`wget -qO- http://44.203.255.137:8000`"
+wget -q 44.203.255.137:8000
 if [ $? -eq 0 ]
 then
     echo 'ok - serviço no ar!'
