@@ -20,7 +20,7 @@ variable "ami" {
 
 variable "instance_type" {
   description = "AWS Instance type define hardware configuration of the machine "
-  default     = "t2.micro"
+  default     = "r3.2xlarge"
 }
 
 variable "repo" {

@@ -1,7 +1,7 @@
 #/bin/bash
 
-RESULT="`wget -qO- http://34.201.105.107:8000`"
-wget -q 34.201.105.107:8000
+RESULT="`wget -qO- http://3.94.169.114:8000`"
+wget -q 3.94.169.114:8000
 if [ $? -eq 0 ]
 then
     echo 'ok - serviço no ar!'
